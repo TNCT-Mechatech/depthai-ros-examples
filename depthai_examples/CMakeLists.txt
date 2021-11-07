@@ -123,7 +123,6 @@ TIMEOUT 60  # seconds
 EXPECTED_HASH SHA1=219d949610a5760e62a8458941e1300b81c3fe4a
 TLS_VERIFY ON)
 
-
 macro(dai_add_node node_name node_src)
     add_executable("${node_name}" "${node_src}")
     
@@ -152,7 +151,8 @@ dai_add_node(rgb_stereo_node src/rgb_stereo_node.cpp)
 dai_add_node(stereo_mimic_node src/stereo_mimic_node.cpp)
 dai_add_node(rgb_subscriber_node src/rgb_video_subscriber.cpp)
 dai_add_node(yolov4_spatial_node src/yolov4_spatial_publisher.cpp)
-
+dai_add_node(yolo_node src/yolo_publisher.cpp)
 
 target_compile_definitions(mobilenet_node PRIVATE BLOB_PATH="${mobilenet_blob}")
 target_compile_definitions(yolov4_spatial_node PRIVATE BLOB_PATH="${tiny_yolo_v4_blob}")
+target_compile_definitions(yolo_node PRIVATE BLOB_PATH="${tiny_yolo_v4_blob}")
